@@ -1,0 +1,276 @@
+<resources>
+    <string name="app_name" translatable="false">Orumanga</string>
+    <string name="nav_home">Trang Chủ</string>
+    <string name="nav_read">Của Tôi</string>
+    <string name="nav_search">Tìm Kiếm</string>
+    <string name="nav_profile">Tài Khoản</string>
+
+    <!--  Account  -->
+    <string name="logout">Đăng xuất</string>
+    <string name="profile">Hồ sơ</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="settings">Cài đặt</string>
+    <string name="information">Thông tin</string>
+
+    <!--  Mylist  -->
+    <string name="analytics">Thống kê</string>
+    <string name="history">Đã xem</string>
+    <string name="favorite">Yêu thích</string>
+    <string name="download">Tải về</string>
+    <string name="hello_user">Chào bạn!</string>
+    <string name="default_user">Bạn</string>
+    <string name="good_morning">Chào buổi sáng</string>
+    <string name="good_noon">Chào buổi trưa</string>
+    <string name="good_afternoon">Chào buổi chiều</string>
+    <string name="good_evening">Chào buổi tối</string>
+
+    <!--  Download  -->
+    <string name="downloaded_list_title">Danh sách đã tải về</string>
+    <string name="no_downloads">Chưa có tài liệu tải xuống</string>
+    <string name="author_label1">Tác giả: </string>
+    <string name="remove">Xóa</string>
+    <string name="cannot_open_file">Không thể mở file!</string>
+    <string name="deleted_msg">Đã xóa </string>
+    <string name="cannot_delete">Không thể xóa </string>
+    <string name="updating">Đang cập nhật</string>
+    <string name="delete_confirm_yes">Có</string>
+    <string name="delete_confirm_no">Không</string>
+    <string name="delete_confirm_msg">Bạn có chắc muốn xóa file này?</string>
+    <string name="pdf_download_error">Lỗi tải PDF: %1$s</string>
+    <string name="file_already_downloaded">File đã được tải xuống.</string>
+    <string name="start_download">Bắt đầu tải xuống</string>
+    <string name="pdf_not_downloaded">Không tải được PDF!</string>
+    <string name="download_success">Tải xuống thành công</string>
+    <string name="entity_deleted_for_redownload">Entity tồn tại nhưng file bị mất, xóa Entity và tải
+        lại.</string>
+    <string name="download_canceled">Đã hủy tải do thoát màn hình hoặc bị hủy thủ công</string>
+    <string name="download_ready">PDF đã sẵn sàng để sử dụng</string>
+    <string name="no_pdf_file">Truyện này không có file PDF!</string>
+    <string name="pdf_data_not_found">Không tìm thấy dữ liệu PDF</string>
+    <string name="firestore_load_error">Lỗi tải Firestore: %1$s</string>
+    <string name="load_pdf_local">Load PDF: Đọc từ đường dẫn cục bộ (pdfPath).</string>
+    <string name="load_pdf_missing">Load PDF: File đã tải xuống bị mất tại đường dẫn: %1$s</string>
+    <string name="load_pdf_missing_toast">Lỗi: Không tìm thấy file đã tải xuống.</string>
+    <string name="load_pdf_episode">Load PDF: Tải file từ Link Tập (episodePdfLink).</string>
+    <string name="load_pdf_room_exists">Load PDF: Đọc từ Room (File tồn tại).</string>
+    <string name="load_pdf_room_missing">Load PDF: File Room bị mất, đang xóa record và tải lại.</string>
+    <string name="file_lost_redownload">File tải xuống bị mất, đang tải lại...</string>
+
+
+    <!--  History  -->
+    <string name="history_empty_no_login">Bạn chưa đăng nhập!</string>
+    <string name="history_empty_no_data">Chưa có lịch sử xem.</string>
+    <string name="history_error_load">Lỗi tải dữ liệu. Vui lòng kiểm tra kết nối.</string>
+    <string name="history_title">Lịch sử đọc truyện</string>
+    <string name="history_author">Tác giả: %1$s</string>
+    <string name="history_start_time">Bắt đầu: %1$s</string>
+
+    <!--  Favorite  -->
+    <string name="title_favorite">Truyện yêu thích</string>
+    <string name="empty_favorite">Chưa có truyện yêu thích.</string>
+    <string name="remove_favorite_success">Đã bỏ yêu thích: %1$s</string>
+    <string name="not_logged_in">Chưa đăng nhập!</string>
+    <string name="favorite_error">Lỗi tải danh sách yêu thích.</string>
+    <string name="author_label">Tác giả: </string>
+    <string name="remove_fav">Bỏ yêu thích</string>
+    <string name="error_load_favorites">Lỗi tải danh sách yêu thích</string>
+    <string name="add_favorite_success">Đã thêm vào yêu thích</string>
+    <string name="add_favorite_fail">Lỗi thêm vào yêu thích</string>
+    <string name="remove_favorite_success1">Đã xóa khỏi yêu thích</string>
+    <string name="remove_favorite_fail">Lỗi xóa khỏi yêu thích</string>
+    <string name="error_insufficient_info">Lỗi: Không đủ thông tin để lưu yêu thích</string>
+    <string name="added_to_favorites">Đã thêm vào yêu thích</string>
+    <string name="removed_from_favorites">Đã xóa khỏi yêu thích</string>
+
+    <!--  Home  -->
+    <string name="network_error">Lỗi mạng!</string>
+    <string name="unknown_name">Không rõ tên</string>
+    <string name="unknown_author">Không rõ tác giả</string>
+    <string name="unknown_category">Khác</string>
+    <string name="pdf_link_not_found">Không tìm thấy link đọc!</string>
+    <string name="default_story_title">Truyện</string>
+    <string name="default_tap_title">Tập</string>
+    <string name="default_user_name">Bạn</string>
+
+    <string name="review_books">Truyện gần đây</string>
+    <string name="new_books">Truyện mới</string>
+    <string name="popular_books">Truyện phổ biến</string>
+    <string name="trend_books">Xu hướng đọc</string>
+    <string name="detail_text">Chi tiết ></string>
+
+    <string name="hello_user1">Chào bạn!</string>
+    <string name="greeting_morning">Chào buổi sáng </string>
+    <string name="greeting_noon">Chào buổi trưa </string>
+    <string name="greeting_afternoon">Chào buổi chiều </string>
+    <string name="greeting_evening">Chào buổi tối </string>
+
+    <string name="author">Tác giả: %1$s</string>
+    <string name="error_no_category">Lỗi: Không tìm thấy danh mục.</string>
+    <string name="no_books_found">Không tìm thấy cuốn sách nào trong danh mục này.</string>
+
+    <!--  Series  -->
+    <string name="series_list">Danh sách các tập</string>
+    <string name="no_series">Không có tập nào</string>
+    <string name="error_story_not_found">Không tìm thấy truyện!</string>
+    <string name="error_loading_data">Lỗi tải dữ liệu!</string>
+
+    <!--  Analytics  -->
+    <string name="sum_book">Tổng số sách</string>
+    <string name="sum_hours">Tổng số giờ đọc</string>
+    <string name="tv_title">Thống kê đọc sách</string>
+    <string name="title1">Hoạt động đọc sách</string>
+    <string name="title2">Tần suất đọc theo truyện</string>
+    <string name="title3">Tỷ lệ thời gian đọc theo buổi</string>
+    <string name="daily">Ngày</string>
+    <string name="weekly">Tuần</string>
+    <string name="monthly">Tháng</string>
+    <string name="minutes">%1$d phút</string>
+    <string name="hours">giờ</string>
+    <string name="no_data">Không có dữ liệu</string>
+    <string name="hours_minutes">%1$d giờ %2$d phút</string>
+    <string name="total_reading_time">TỔNG\nTHỜI GIAN\nĐỌC</string>
+
+    <!--  Read  -->
+    <string name="pdf_loaded">Bắt đầu đọc!</string>
+    <string name="pdf_load_error">Không thể mở file PDF đã tải.</string>
+    <string name="second">s</string>
+    <string name="story_default">Truyện</string>
+    <string name="page">trang</string>
+    <string name="loading">Đang tải...</string>
+    <string name="no_story_data">Lỗi: Không có thông tin truyện để đọc!</string>
+    <string name="author_unknown">Tác giả: Đang cập nhật</string>
+    <string name="downloaded">Đã tải xuống</string>
+    <string name="story_not_found_room">Lỗi: Không tìm thấy thông tin chi tiết truyện đã tải trong
+        CSDL.</string>
+    <string name="no_pdf_link">Không tìm thấy link PDF!</string>
+    <string name="no_fragment_manager">Lỗi: Không tìm thấy Fragment Manager.</string>
+
+    <!--  setting  -->
+    <string name="title_setting">Cài đặt</string>
+    <string name="Chieudoc">Chiều đọc:</string>
+    <string name="rbVertical">Ngang</string>
+    <string name="rbHorizontal">Dọc</string>
+    <string name="txtPageMode">Hiển thị trang</string>
+    <string name="rbSinglePage">1 trang</string>
+    <string name="rbDoublePage">2 trang</string>
+    <string name="switchAutoNext">Tự động chuyển trang</string>
+    <string name="txtAutoTimeTitle">Thời gian</string>
+    <string name="close">Đóng</string>
+    <string name="toast_start_reading">Bắt đầu đọc!</string>
+    <string name="toast_cannot_open_pdf">Không thể mở file PDF đã tải.</string>
+
+    <!--  Note  -->
+    <string name="error_missing_data">Lỗi: Thiếu dữ liệu bắt buộc.</string>
+    <string name="error_no_fragment_data">Lỗi: Không tìm thấy dữ liệu Fragment.</string>
+    <string name="error_load_note">Lỗi tải ghi chú: %1$s</string>
+    <string name="error_empty_note">Vui lòng nhập nội dung ghi chú!</string>
+    <string name="error_save_note">Lưu ghi chú thất bại: %1$s</string>
+    <string name="error_delete_note">Xóa ghi chú thất bại.</string>
+    <string name="note_saved">Đã lưu ghi chú ở trang %1$d!</string>
+    <string name="note_deleted">Đã xóa ghi chú ở trang %1$d!</string>
+
+    <string name="txtTitle">Ghi chú</string>
+    <string name="edtNoteContent">Nhập ghi chú...</string>
+    <string name="btnAddNote">Thêm</string>
+    <string name="btnUpdateNote">Lưu</string>
+    <string name="btnDeleteNote">Xóa</string>
+    <string name="btnClose">Đóng</string>
+    <string name="page_label">Trang</string>
+
+    <!--  Login  -->
+    <string name="login_title">Đăng nhập</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="register_now">Đăng ký ngay</string>
+    <string name="error_empty_fields">Vui lòng điền đầy đủ thông tin</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="login_fail">Đăng nhập thất bại</string>
+    <string name="register_prompt">Chưa có tài khoản?</string>
+
+    <!--  Profile  -->
+    <string name="profile_title">THÔNG TIN NGƯỜI DÙNG</string>
+    <string name="email_label">Email: </string>
+    <string name="fullname_label">Họ và tên: </string>
+    <string name="gender_label">Giới tính: </string>
+    <string name="birthdate_label">Ngày sinh: </string>
+    <string name="phone_label">Số điện thoại: </string>
+    <string name="interest_label">Sở thích: </string>
+    <string name="gender_male">Nam</string>
+    <string name="gender_female">Nữ</string>
+
+    <string name="please_login_again">Vui lòng đăng nhập lại!</string>
+    <string name="choose_new_avatar_title">Thay đổi ảnh đại diện</string>
+    <string name="choose_new_avatar_message">Bạn có muốn chọn ảnh mới không?</string>
+    <string name="choose_image">Chọn ảnh</string>
+    <string name="cancel">Hủy</string>
+    <string name="logout_success">Đã đăng xuất!</string>
+    <string name="update_avatar_success">Cập nhật ảnh thành công!</string>
+    <string name="update_avatar_fail">Lỗi khi lưu ảnh!</string>
+    <string name="select_image_fail">Lỗi khi chọn ảnh!</string>
+    <string name="user_data_not_found">Không tìm thấy dữ liệu người dùng!</string>
+    <string name="user_data_load_fail">Lỗi khi tải dữ liệu người dùng!</string>
+    <string name="database_error">Lỗi tải dữ liệu: %1$s</string>
+
+    <!--  Register  -->
+    <string name="register_title">Tạo tài khoản</string>
+    <string name="confirm_password_hint">Xác nhận mật khẩu</string>
+    <string name="register_button">Đăng ký</string>
+    <string name="login_now">Đăng nhập ngay</string>
+    <string name="already_have_account">Đã có tài khoản?</string>
+    <string name="password_not_match">Mật khẩu không trùng khớp</string>
+    <string name="password_min_length">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="register_success">Đăng ký thành công!</string>
+    <string name="error">Lỗi</string>
+
+    <!-- Spinner ngôn ngữ -->
+    <string name="language_vi">VI</string>
+    <string name="language_en">EN</string>
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_title">Quên mật khẩu</string>
+    <string name="email_hint1">Nhập email của bạn</string>
+    <string name="reset_button">Gửi</string>
+    <string name="back_to_login">Quay lại đăng nhập</string>
+    <string name="reset_email_sent">Đã gửi email đặt lại mật khẩu đến</string>
+    <string name="reset_email_fail">Gửi email thất bại</string>
+    <string name="error_unknown">Lỗi không xác định</string>
+
+    <!-- User Info -->
+    <string name="title_user_info">Thông tin người dùng</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="birth_date">Ngày sinh</string>
+    <string name="interest">Sở thích</string>
+    <string name="select_gender">Giới tính</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="other">Khác</string>
+    <string name="save_button">Lưu thông tin</string>
+    <string name="toast_missing_info">Vui lòng nhập đầy đủ thông tin!</string>
+    <string name="toast_missing_account">Không tìm thấy tài khoản. Vui lòng đăng nhập lại!</string>
+    <string name="toast_image_error">Lỗi khi đọc ảnh!</string>
+    <string name="toast_save_success">Đã lưu thông tin thành công!</string>
+    <string name="toast_save_failed">Lưu thất bại:</string>
+    <string name="avatar_description">Ảnh đại diện</string>
+    <string name="userinfo_title">Nhập thông tin cá nhân</string>
+    <string name="userinfo_avatar">Ảnh đại diện</string>
+    <string name="userinfo_gender">Giới tính:</string>
+    <string name="userinfo_birthdate">Ngày sinh:</string>
+    <string name="save_info">Lưu thông tin</string>
+    <string name="hint_full_name">Họ và tên</string>
+    <string name="hint_phone">Số điện thoại</string>
+    <string name="hint_birthdate">Chọn ngày sinh</string>
+    <string name="hint_interest">Nhập sở thích</string>
+    <string name="choose_language">Chọn ngôn ngữ</string>
+    <string name="save">Lưu</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="user">Người dùng</string>
+    <string name="no_history_available">Chưa có lịch sử xem.</string>
+    <string name="no_favorites_available">Chưa truyện yêu thích nào.</string>
+    <string name="chatbot_welcome_message">Xin chào! Tôi là AI trợ lý 🤖</string>
+    <string name="chatbot_typing_indicator">Đang trả lời…</string>
+    <string name="chatbot_error_message">❌ Có lỗi xảy ra</string>
+    <string name="pdf_download_missing">Không tìm thấy link để tải</string>
+</resources>
