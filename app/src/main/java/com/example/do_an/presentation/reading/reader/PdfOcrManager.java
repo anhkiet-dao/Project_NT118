@@ -11,7 +11,6 @@ public class PdfOcrManager {
 
     private final TextRecognizer recognizer;
 
-    // CALLBACK PHẢI NẰM TRONG CLASS
     public interface Callback {
         void onSuccess(String text);
         void onError(Exception e);
@@ -23,7 +22,6 @@ public class PdfOcrManager {
         );
     }
 
-    // METHOD ocr PHẢI PUBLIC
     public void ocr(Bitmap bitmap, Callback callback) {
         InputImage image = InputImage.fromBitmap(bitmap, 0);
         recognizer.process(image)

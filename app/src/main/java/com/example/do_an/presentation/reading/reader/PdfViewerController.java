@@ -57,7 +57,6 @@ public class PdfViewerController {
         this.titleSupplier = titleSupplier;
         this.urlConsumer = urlConsumer;
 
-        // Initialize hide runnable
         hideProgressRunnable = () -> {
             progressContainer.animate()
                     .alpha(0f)
@@ -98,7 +97,6 @@ public class PdfViewerController {
             if (settingsManager.isAutoNext())
                 startAutoNext();
 
-            // Gọi callback khi PDF load xong
             if (onPdfLoaded != null)
                 onPdfLoaded.run();
 
@@ -137,14 +135,12 @@ public class PdfViewerController {
 
         readingProgressBar.setProgress(progress);
 
-        // Show with fade animation
         if (progressContainer.getVisibility() == View.GONE) {
             progressContainer.setVisibility(View.VISIBLE);
             progressContainer.setAlpha(0f);
             progressContainer.animate().alpha(1f).setDuration(200).start();
         }
 
-        // Auto-hide after 2 seconds
         progressContainer.removeCallbacks(hideProgressRunnable);
         progressContainer.postDelayed(hideProgressRunnable, 2000);
     }

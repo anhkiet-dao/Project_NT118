@@ -56,10 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         checkCurrentUser();
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews() {
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
@@ -100,10 +96,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
-
     private void setupLanguageSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -135,10 +127,6 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoading(boolean show) {
         btnLogin.setEnabled(!show);
     }
-
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
 
     private void onLoginIntent() {
         clearErrors();
@@ -175,10 +163,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================
-    // 4️⃣ Validation
-    // =========================================================
-
     private boolean validateInput(String email, String password) {
         if (email.isEmpty()) {
             inputEmail.setError(getString(R.string.error_empty_fields));
@@ -192,10 +176,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return true;
     }
-
-    // =========================================================
-    // 5️⃣ Business actions
-    // =========================================================
 
     private void doLogin(String email, String password) {
         showLoading(true);
@@ -221,10 +201,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================
-    // 6️⃣ Result handlers
-    // =========================================================
-
     private void onLoginSuccess(String email, String password) {
         userPrefs.saveUser(email, password);
         Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
@@ -236,10 +212,6 @@ public class LoginActivity extends AppCompatActivity {
         String message = getString(R.string.login_fail) + ": " + error;
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
-    // =========================================================
-    // 7️⃣ Navigation
-    // =========================================================
 
     private void navigateToMain(String email) {
         Intent i = new Intent(this, MainActivity.class);

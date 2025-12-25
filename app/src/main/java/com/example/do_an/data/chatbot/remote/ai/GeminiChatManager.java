@@ -22,16 +22,13 @@ public class GeminiChatManager {
     private final GenerativeModelFutures model;
     private final Executor executor = Executors.newSingleThreadExecutor();
 
-    /* ===== CALLBACK ===== */
     public interface Callback {
         void onSuccess(String answer);
         void onError(String error);
     }
 
-    /* ===== CONSTRUCTOR ===== */
     public GeminiChatManager(@NonNull String apiKey) {
 
-        // ⚠️ BẮT BUỘC PHẢI CÓ "models/"
         GenerativeModel generativeModel = new GenerativeModel(
                 "models/gemini-1.0-pro",
                 apiKey
@@ -40,7 +37,6 @@ public class GeminiChatManager {
         model = GenerativeModelFutures.from(generativeModel);
     }
 
-    /* ===== ASK GEMINI ===== */
     public void ask(@NonNull String prompt, @NonNull Callback callback) {
 
         Content content = new Content.Builder()

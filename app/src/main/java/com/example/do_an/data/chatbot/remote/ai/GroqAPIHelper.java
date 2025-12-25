@@ -20,13 +20,11 @@ public class GroqAPIHelper {
     private static final String API_URL =
             "https://api.groq.com/openai/v1/chat/completions";
 
-    /* ================= CALLBACK ================= */
     public interface GroqCallback {
         void onSuccess(String answer);
         void onError(String error);
     }
 
-    /* ================= SYNC CALL (GIỮ NGUYÊN) ================= */
     public static String askAI(JSONArray messages) {
 
         HttpURLConnection conn = null;
@@ -93,7 +91,6 @@ public class GroqAPIHelper {
         }
     }
 
-    /* ================= ASYNC CALL (DÙNG TRONG UI) ================= */
     public static void askAIAsync(JSONArray messages, GroqCallback callback) {
 
         new Thread(() -> {

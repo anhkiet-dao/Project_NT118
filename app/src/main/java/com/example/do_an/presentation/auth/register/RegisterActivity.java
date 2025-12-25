@@ -49,10 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
         bindActions();
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews() {
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
@@ -94,10 +90,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
-
     private void setupLanguageSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -123,10 +115,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void showLoading(boolean show) {
         btnRegister.setEnabled(!show);
     }
-
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
 
     private void onRegisterIntent() {
         clearErrors();
@@ -160,10 +148,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================
-    // 4️⃣ Validation
-    // =========================================================
-
     private boolean validateInput(String email, String password, String confirmPassword) {
         if (email.isEmpty()) {
             inputEmail.setError(getString(R.string.error_empty_fields));
@@ -193,10 +177,6 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
-    // =========================================================
-    // 5️⃣ Business actions
-    // =========================================================
-
     private void doRegister(String email, String password) {
         showLoading(true);
 
@@ -217,10 +197,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
-    // =========================================================
-    // 6️⃣ Result handlers
-    // =========================================================
-
     private void onRegisterSuccess(String email, String password, FirebaseUser user) {
         userPrefs.saveUser(email, password);
         Toast.makeText(this, getString(R.string.register_success), Toast.LENGTH_SHORT).show();
@@ -232,10 +208,6 @@ public class RegisterActivity extends AppCompatActivity {
         String message = getString(R.string.error) + ": " + error;
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
-    // =========================================================
-    // 7️⃣ Navigation
-    // =========================================================
 
     private void navigateToUserInfo(FirebaseUser user) {
         Intent i = new Intent(this, UserInfoActivity.class);

@@ -70,10 +70,6 @@ public class HistoryFragment extends Fragment {
         isViewCreated = false;
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews(View view) {
         recyclerHistory = view.findViewById(R.id.recyclerHistory);
         textEmptyHistory = view.findViewById(R.id.textEmptyHistory);
@@ -96,12 +92,8 @@ public class HistoryFragment extends Fragment {
     }
 
     private void bindActions() {
-        // No user actions in this fragment
-    }
 
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
+    }
 
     private void showEmptyState(String message) {
         recyclerHistory.setVisibility(View.GONE);
@@ -114,10 +106,6 @@ public class HistoryFragment extends Fragment {
         recyclerHistory.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
     }
-
-    // =========================================================
-    // 3️⃣ Data loading
-    // =========================================================
 
     private void loadHistoryData() {
         if (!isViewCreated || getContext() == null)
@@ -149,10 +137,6 @@ public class HistoryFragment extends Fragment {
         });
     }
 
-    // =========================================================
-    // 4️⃣ Data processing
-    // =========================================================
-
     private void onDataLoaded(DataSnapshot snapshot) {
         ArrayList<HistoryItemWithDate> allHistoryItems = dataProcessor.parseHistoryItems(snapshot);
         dataProcessor.sortByDateDescending(allHistoryItems);
@@ -170,10 +154,6 @@ public class HistoryFragment extends Fragment {
             groupList.add(new HistoryGroup(date, groupedByDate.get(date)));
         }
     }
-
-    // =========================================================
-    // 5️⃣ Result handlers
-    // =========================================================
 
     private void displayHistory() {
         if (!isViewCreated)

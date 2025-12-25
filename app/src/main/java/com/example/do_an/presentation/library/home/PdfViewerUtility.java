@@ -104,7 +104,6 @@ public class PdfViewerUtility {
         }.execute();
     }
 
-    /** Đóng renderer cũ */
     public void closeRenderer() {
         try {
             if (pdfRenderer != null) {

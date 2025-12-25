@@ -32,7 +32,6 @@ public class SpeechController {
         this.context = context;
         this.settingsManager = settingsManager;
 
-        // Khởi tạo TTS
         tts = new TextToSpeech(context, status -> {
             if (status == TextToSpeech.SUCCESS) {
                 tts.setLanguage(Locale.getDefault());
@@ -74,7 +73,7 @@ public class SpeechController {
             @Override
             public void onError(int error) {
                 Log.e(TAG, "Lỗi Speech: " + error);
-                // Lỗi 7 là không nghe thấy gì, lỗi 8 là máy bận. Cần khởi động lại để nghe tiếp.
+
                 restartListening();
             }
 
@@ -87,7 +86,6 @@ public class SpeechController {
                         currentListener.onCommandRecognized(command);
                     }
                 }
-                // Quan trọng: Sau khi có kết quả, đợi 1 chút rồi nghe tiếp
                 restartListening();
             }
 
@@ -101,7 +99,6 @@ public class SpeechController {
     private void restartListening() {
         if (isDestroyed || !settingsManager.isVoiceControlEnabled()) return;
 
-        // Trì hoãn một chút trước khi nghe lại để tránh xung đột audio
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             if (speechRecognizer != null && !isDestroyed) {
                 speechRecognizer.cancel();

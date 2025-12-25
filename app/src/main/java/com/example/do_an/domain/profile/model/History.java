@@ -9,9 +9,8 @@ public class History {
     private String episodeTitle;
     private String storyId;
 
-    public History() {} // constructor rỗng bắt buộc để Firebase có thể map
+    public History() {}
 
-    // --- Getters & Setters ---
     public String getStartTime() { return startTime; }
     public void setStartTime(String startTime) { this.startTime = startTime; }
 

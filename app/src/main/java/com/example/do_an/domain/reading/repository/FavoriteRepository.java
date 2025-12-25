@@ -24,7 +24,7 @@ public class FavoriteRepository {
     private static final String TAG = "FavoriteManager";
     private final DatabaseReference database;
     private final Context context;
-    private Locale currentLocale = Locale.getDefault(); // Ngôn ngữ mặc định
+    private Locale currentLocale = Locale.getDefault();
 
     public interface FavoritesCallback {
         void onFavoritesLoaded(List<Map<String, Object>> favorites);
@@ -37,7 +37,6 @@ public class FavoriteRepository {
         ).getReference("Favorites");
     }
 
-    /** Set ngôn ngữ runtime cho Toast/Log */
     public void setLocale(Locale locale) {
         this.currentLocale = locale;
     }

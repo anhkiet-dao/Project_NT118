@@ -289,32 +289,6 @@ public class DownloadController {
         return downloadCall;
     }
 
-    @SuppressLint("StringFormatInvalid")
-    private void loadPdfFromFirestore(final String storyDocumentId, final PdfSetupCallback callback,
-            final StringConsumer urlConsumer) {
-        db.collection("Truyentranh").document(storyDocumentId)
-                .get()
-                .addOnSuccessListener(doc -> {
-                    if (doc.exists()) {
-                        String pdfUrl = doc.getString("pdfUrl");
-                        if (pdfUrl != null && !pdfUrl.isEmpty()) {
-                            urlConsumer.set(pdfUrl);
-                            downloadPdfToCache(pdfUrl, "temp_story.pdf", callback);
-                        } else {
-                            showToast(context.getString(R.string.no_pdf_file));
-                            hideLoadingOnUi();
-                        }
-                    } else {
-                        showToast(context.getString(R.string.pdf_data_not_found, storyDocumentId));
-                        hideLoadingOnUi();
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    showToast(context.getString(R.string.firestore_load_error, e.getMessage()));
-                    hideLoadingOnUi();
-                });
-    }
-
     public Call loadAndSetupPdf(final String episodePdfLink, final String pdfPath, final String mainStoryTitle,
             final PdfSetupCallback callback, final StringConsumer urlConsumer) {
 
@@ -365,11 +339,7 @@ public class DownloadController {
                         logDebug(context.getString(R.string.load_pdf_room_missing));
                         showToast(context.getString(R.string.file_lost_redownload));
                         new Thread(() -> pdfDao.delete(localPdf)).start();
-                        loadPdfFromFirestore(mainStoryTitle, callback, urlConsumer);
                     }
-                } else {
-                    logDebug(context.getString(R.string.load_pdf_room_missing));
-                    loadPdfFromFirestore(mainStoryTitle, callback, urlConsumer);
                 }
             });
         }).start();

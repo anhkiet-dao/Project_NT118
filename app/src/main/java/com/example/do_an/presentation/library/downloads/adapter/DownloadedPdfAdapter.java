@@ -54,7 +54,6 @@ public class DownloadedPdfAdapter extends RecyclerView.Adapter<DownloadedPdfAdap
 
         final String title = entity.fileName.replace(".pdf", "");
 
-        // 🔥 Lấy text "Đang cập nhật" từ resource
         final String author = entity.author != null && !entity.author.isEmpty()
                 ? entity.author
                 : activity.getString(R.string.updating);
@@ -73,7 +72,6 @@ public class DownloadedPdfAdapter extends RecyclerView.Adapter<DownloadedPdfAdap
 
         holder.txtPdfName.setText(title);
 
-        // 🔥 Lấy text theo locale
         String authorLabel = activity.getString(R.string.author_label);
         holder.txtPdfAuthor.setText(authorLabel + author);
 
@@ -125,7 +123,6 @@ public class DownloadedPdfAdapter extends RecyclerView.Adapter<DownloadedPdfAdap
         TextView btnYes = dialog.findViewById(R.id.btnYes);
         TextView btnNo = dialog.findViewById(R.id.btnNo);
 
-        // 🔥 Set text theo ngôn ngữ
         txtMessage.setText(activity.getString(R.string.delete_confirm_msg)); // 👈 message mới
         btnYes.setText(activity.getString(R.string.delete_confirm_yes));
         btnNo.setText(activity.getString(R.string.delete_confirm_no));

@@ -36,10 +36,6 @@ public class ChatFragment extends Fragment {
 
     private ReadFragment.NavigationListener navigationListener;
 
-    // =========================================================
-    // Lifecycle
-    // =========================================================
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -90,10 +86,6 @@ public class ChatFragment extends Fragment {
         navigationListener = null;
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews(View view) {
         recyclerChat = view.findViewById(R.id.recyclerViewChat);
         editMessage = view.findViewById(R.id.edtMessage);
@@ -116,10 +108,6 @@ public class ChatFragment extends Fragment {
     private void bindActions() {
         btnSend.setOnClickListener(v -> onSendIntent());
     }
-
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
 
     private void addWelcomeMessage() {
         messages.add(new Message(Message.TYPE_BOT, getString(R.string.chatbot_welcome_message)));
@@ -152,10 +140,6 @@ public class ChatFragment extends Fragment {
         btnSend.setEnabled(!show);
     }
 
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
-
     private void onSendIntent() {
         String userMsg = editMessage.getText().toString().trim();
         if (userMsg.isEmpty())
@@ -170,10 +154,6 @@ public class ChatFragment extends Fragment {
         doAskAI(userMsg, messages.size() - 1);
     }
 
-    // =========================================================
-    // 4️⃣ Business actions
-    // =========================================================
-
     private void doAskAI(String userMsg, int botIndex) {
         aiHelper.askAI(userMsg, new ChatAIHelper.AICallback() {
             @Override
@@ -187,10 +167,6 @@ public class ChatFragment extends Fragment {
             }
         });
     }
-
-    // =========================================================
-    // 5️⃣ Result handlers
-    // =========================================================
 
     private void onAISuccess(int botIndex, String reply) {
         if (!isAdded())

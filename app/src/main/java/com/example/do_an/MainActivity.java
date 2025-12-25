@@ -37,10 +37,6 @@ public class MainActivity extends AppCompatActivity implements ReadFragment.Navi
         bindActions();
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews() {
         bottomNavigation = findViewById(R.id.bottomNavigation);
     }
@@ -83,10 +79,6 @@ public class MainActivity extends AppCompatActivity implements ReadFragment.Navi
             return true;
         });
     }
-
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
 
     private void setupFragments(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
@@ -135,10 +127,6 @@ public class MainActivity extends AppCompatActivity implements ReadFragment.Navi
             fragmentActive = fragmentAccount;
     }
 
-    // =========================================================
-    // 3️⃣ Fragment operations
-    // =========================================================
-
     private void switchFragment(Fragment fragmentToShow) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.hide(fragmentActive);
@@ -152,10 +140,6 @@ public class MainActivity extends AppCompatActivity implements ReadFragment.Navi
             fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
-
-    // =========================================================
-    // 4️⃣ Interface implementations
-    // =========================================================
 
     @Override
     public void setBottomNavVisibility(int visibility) {

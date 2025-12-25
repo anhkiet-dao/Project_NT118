@@ -53,7 +53,6 @@ public class NoteFragment extends Fragment {
         btnClose = view.findViewById(R.id.btnClose);
         txtTitleNote = view.findViewById(R.id.txtTitle);
 
-        // Thiết lập text đa ngôn ngữ
         txtTitleNote.setText(getString(R.string.txtTitle));
         edtNote.setHint(getString(R.string.edtNoteContent));
         btnAdd.setText(getString(R.string.btnAddNote));

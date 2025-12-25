@@ -19,7 +19,6 @@ public class FavoriteHandler {
         favoriteRepository = new FavoriteRepository(context);
     }
 
-    /** Chọn ngôn ngữ hiển thị (Toast/Log) */
     public void setLocale(Locale locale) {
         favoriteRepository.setLocale(locale);
     }
@@ -49,14 +48,13 @@ public class FavoriteHandler {
                 }
             }
 
-            // SỬA TẠI ĐÂY: Đưa vào Luồng Chính để cập nhật UI
             final boolean finalIsFavorite = isFavorite;
             btnFavorite.post(() -> {
                 btnFavorite.setTag(finalIsFavorite);
                 btnFavorite.setImageResource(finalIsFavorite
                         ? R.drawable.ic_favorite_filled
                         : R.drawable.ic_favorite_border);
-                btnFavorite.invalidate(); // Buộc view vẽ lại
+                btnFavorite.invalidate();
             });
         });
     }
@@ -71,27 +69,22 @@ public class FavoriteHandler {
 
         final String titleForFavorite = getFavoriteTitle(mainTitle, currentTitle);
 
-        // Lấy trạng thái hiện tại từ Tag
         Object tagValue = btnFavorite.getTag();
         boolean isFavorite = (tagValue instanceof Boolean) && (Boolean) tagValue;
 
         if (!isFavorite) {
-            // Luồng logic: Thêm vào Firebase
             favoriteRepository.addFavorite(userEmail, storyId, titleForFavorite, author, category, null, imageUrl, readUrl);
 
-            // Cập nhật UI ngay lập tức trên Main Thread
             btnFavorite.post(() -> {
-                btnFavorite.setTag(true); // Gán Tag trước
+                btnFavorite.setTag(true);
                 btnFavorite.setImageResource(R.drawable.ic_favorite_filled);
                 btnFavorite.invalidate();
             });
         } else {
-            // Luồng logic: Xóa khỏi Firebase
             favoriteRepository.removeFavorite(userEmail, storyId, titleForFavorite);
 
-            // Cập nhật UI ngay lập tức trên Main Thread
             btnFavorite.post(() -> {
-                btnFavorite.setTag(false); // Gán Tag trước
+                btnFavorite.setTag(false);
                 btnFavorite.setImageResource(R.drawable.ic_favorite_border);
                 btnFavorite.invalidate();
             });

@@ -15,7 +15,7 @@ import java.util.List;
 public interface DownloadedPdfDao {
 
     @Query("SELECT * FROM downloaded_pdfs ORDER BY id DESC")
-    List<DownloadedPdfEntity> getAllPdfs(); // ⬅️ ĐÃ BỎ isCache = 0
+    List<DownloadedPdfEntity> getAllPdfs();
 
     @Query("SELECT * FROM downloaded_pdfs WHERE storyDocumentId = :storyId AND isCache = 0 LIMIT 1")
     DownloadedPdfEntity getPdfByStoryId(String storyId);

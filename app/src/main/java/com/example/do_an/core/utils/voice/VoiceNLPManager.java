@@ -35,8 +35,6 @@ public class VoiceNLPManager {
         this.callback = callback;
     }
 
-    /* ================= START ================= */
-
     public void startListening() {
         if (ContextCompat.checkSelfPermission(
                 fragment.requireContext(),
@@ -74,8 +72,6 @@ public class VoiceNLPManager {
 
         fragment.startActivityForResult(intent, REQ_SPEECH);
     }
-
-    /* ================= NLP ================= */
 
     private String normalize(String text) {
         text = text.toLowerCase();

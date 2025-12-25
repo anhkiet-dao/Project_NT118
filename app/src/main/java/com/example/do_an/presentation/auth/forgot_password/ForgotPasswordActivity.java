@@ -44,10 +44,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         bindActions();
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews() {
         editEmail = findViewById(R.id.editEmail);
         inputEmail = findViewById(R.id.inputEmail);
@@ -82,10 +78,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         });
     }
 
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
-
     private void setupLanguageSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -109,10 +101,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private void showLoading(boolean show) {
         btnReset.setEnabled(!show);
     }
-
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
 
     private void onResetPasswordIntent() {
         clearErrors();
@@ -144,10 +132,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================
-    // 4️⃣ Validation
-    // =========================================================
-
     private boolean validateInput(String email) {
         if (email.isEmpty()) {
             inputEmail.setError(getString(R.string.error_empty_fields));
@@ -156,10 +140,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         return true;
     }
-
-    // =========================================================
-    // 5️⃣ Business actions
-    // =========================================================
 
     private void doSendResetEmail(String email) {
         showLoading(true);
@@ -178,10 +158,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 });
     }
 
-    // =========================================================
-    // 6️⃣ Result handlers
-    // =========================================================
-
     private void onResetEmailSuccess(String email) {
         String message = getString(R.string.reset_email_sent) + " " + email;
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -195,10 +171,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         String message = getString(R.string.reset_email_fail) + ": " + error;
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
-    // =========================================================
-    // 7️⃣ Navigation
-    // =========================================================
 
     private void navigateToLogin() {
         startActivity(new Intent(this, LoginActivity.class));

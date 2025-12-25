@@ -58,10 +58,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavVie
 
         loadStoryImage(holder.imageStory, story.getImageUrl());
 
-        // Click listener to open ReadFragment
         holder.itemView.setOnClickListener(v -> navigateToReadFragment(story));
 
-        // Remove favorite button
         holder.btnRemoveFav.setOnClickListener(v -> {
             if (removeListener != null) {
                 removeListener.onRemoveFavorite(story, position);

@@ -171,11 +171,9 @@ public class PdfPageAdapter extends RecyclerView.Adapter<PdfPageAdapter.PdfPageV
         int total = pdfRenderer.getPageCount();
         if (pageMode == 1)
             return total;
-        // mỗi item hiển thị 2 trang
-        return (total + 1) / 2; // ceil(total / 2)
+        return (total + 1) / 2;
     }
 
-    // Rất quan trọng: Dọn dẹp
     public void close() {
         try {
             if (pdfRenderer != null) {

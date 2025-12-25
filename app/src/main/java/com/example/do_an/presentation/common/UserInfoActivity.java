@@ -64,10 +64,6 @@ public class UserInfoActivity extends AppCompatActivity {
         bindActions();
     }
 
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
-
     private void bindViews() {
         imageAvatar = findViewById(R.id.imageAvatar);
 
@@ -106,10 +102,6 @@ public class UserInfoActivity extends AppCompatActivity {
         inputBirthDate.setEndIconOnClickListener(v -> onSelectDateIntent());
         btnSave.setOnClickListener(v -> onSaveUserInfoIntent());
     }
-
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
 
     private void setupImagePicker() {
         pickImageLauncher = registerForActivityResult(
@@ -184,10 +176,6 @@ public class UserInfoActivity extends AppCompatActivity {
         btnSave.setEnabled(!show);
     }
 
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
-
     private void onSelectImageIntent() {
         pickImageLauncher.launch("image/*");
     }
@@ -217,10 +205,6 @@ public class UserInfoActivity extends AppCompatActivity {
         doSaveUserInfo(fullName, phone, birthDate, gender, interest);
     }
 
-    // =========================================================
-    // 4️⃣ Validation
-    // =========================================================
-
     private boolean validateInput(String fullName, String phone, String birthDate) {
         boolean isValid = true;
 
@@ -247,10 +231,6 @@ public class UserInfoActivity extends AppCompatActivity {
         RadioButton selectedGender = findViewById(selectedId);
         return selectedGender != null ? selectedGender.getText().toString() : null;
     }
-
-    // =========================================================
-    // 5️⃣ Business actions
-    // =========================================================
 
     private void doSaveUserInfo(String fullName, String phone, String birthDate, String gender, String interest) {
         showLoading(true);
@@ -294,10 +274,6 @@ public class UserInfoActivity extends AppCompatActivity {
         }
     }
 
-    // =========================================================
-    // 6️⃣ Result handlers
-    // =========================================================
-
     private void onSaveSuccess() {
         showLoading(false);
         Toast.makeText(this, getString(R.string.toast_save_success), Toast.LENGTH_SHORT).show();
@@ -309,10 +285,6 @@ public class UserInfoActivity extends AppCompatActivity {
         String message = getString(R.string.toast_save_failed) + ": " + exception.getMessage();
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
-    // =========================================================
-    // 7️⃣ Navigation
-    // =========================================================
 
     private void navigateToMain() {
         startActivity(new Intent(this, MainActivity.class));

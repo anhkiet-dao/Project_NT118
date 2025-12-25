@@ -47,7 +47,6 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // TextView label
         tvTitle = view.findViewById(R.id.tvTitle);
         txtEmail = view.findViewById(R.id.txtemail);
         txtFullName = view.findViewById(R.id.txtFullName);
@@ -56,7 +55,6 @@ public class ProfileFragment extends Fragment {
         txtPhone = view.findViewById(R.id.txtPhone);
         txtInterest = view.findViewById(R.id.txtInterest);
 
-        // TextView value
         tvEmailValue = view.findViewById(R.id.tvEmail);
         tvFullNameValue = view.findViewById(R.id.tvFullName);
         tvGenderValue = view.findViewById(R.id.tvGender);
@@ -66,7 +64,6 @@ public class ProfileFragment extends Fragment {
 
         imgAvatar = view.findViewById(R.id.imgAvatar);
 
-        // Set text đa ngôn ngữ
         tvTitle.setText(getString(R.string.profile_title));
         txtEmail.setText(getString(R.string.email_label));
         txtFullName.setText(getString(R.string.fullname_label));

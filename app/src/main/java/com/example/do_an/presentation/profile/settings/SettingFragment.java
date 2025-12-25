@@ -76,7 +76,6 @@ public class SettingFragment extends Fragment {
         selectedLangCode = currentLang.getCode();
         textSelectedLanguage.setText(getLanguageName(selectedLangCode));
 
-        // Load dark mode state
         boolean isDarkMode = isDarkModeEnabled();
         switchDarkMode.setChecked(isDarkMode);
     }

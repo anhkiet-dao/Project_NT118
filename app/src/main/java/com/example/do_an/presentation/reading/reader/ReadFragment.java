@@ -86,15 +86,11 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
 
     private String cachedOcrText = "";
 
-    /* ================= FACTORY ================= */
-
     public static ReadFragment newInstance(Bundle args) {
         ReadFragment fragment = new ReadFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
-    /* ================= LIFECYCLE ================= */
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -156,13 +152,8 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         if (currentDownloadCall != null)
             currentDownloadCall.cancel();
 
-        // Restore bottom nav when leaving reading screen
         showBottomNav();
     }
-
-    // =========================================================
-    // 1️⃣ Setup phase
-    // =========================================================
 
     private void bindViews(View view) {
         textTitle = view.findViewById(R.id.txtTieuDe);
@@ -206,16 +197,13 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         }
         setupPdfController();
 
-        // Start in immersive mode and hide bottom nav
         hideControls();
         hideBottomNav();
 
-        // Setup tap to toggle using touch listener
         setupTapToToggle();
     }
 
     private void setupTapToToggle() {
-        // Use circular button in center to toggle controls
         View btnToggle = getView().findViewById(R.id.btnToggleControls);
         btnToggle.setOnClickListener(v -> toggleControls());
     }
@@ -245,10 +233,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
                 userEmail,
                 btnFavorite);
     }
-
-    // =========================================================
-    // 2️⃣ UI helpers
-    // =========================================================
 
     private void setupPdfController() {
         pdfViewerController = new PdfViewerController(
@@ -318,10 +302,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         }
     }
 
-    // =========================================================
-    // 3️⃣ Intent handlers
-    // =========================================================
-
     private void onDownloadIntent() {
         if (currentReadUrl == null || currentReadUrl.isEmpty()) {
             Toast.makeText(getContext(), getString(R.string.pdf_download_missing),
@@ -348,7 +328,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
             return;
         }
 
-        // Navigate to SeriesFragment to show chapter list
         Bundle args = new Bundle();
         args.putString("STORY_NAME", dataExtractor.getMainStoryTitle());
         args.putString("STORY_AUTHOR", dataExtractor.getCurrentAuthor());
@@ -402,10 +381,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         }
     }
 
-    // =========================================================
-    // 4️⃣ Data validation
-    // =========================================================
-
     private void validateStoryInfo() {
         if (dataExtractor.getCurrentStoryId() == null) {
             dataExtractor.setCurrentStoryId(dataExtractor.getCurrentTitle());
@@ -414,10 +389,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
             dataExtractor.setCurrentAuthor(getString(R.string.author_unknown));
         }
     }
-
-    // =========================================================
-    // 5️⃣ Business actions
-    // =========================================================
 
     private void doLoadPdf() {
         currentDownloadCall = downloadController.loadAndSetupPdf(
@@ -471,10 +442,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         ocrProcessor.processBitmap(bitmap, textLoading);
     }
 
-    // =========================================================
-    // 6️⃣ Result handlers
-    // =========================================================
-
     private void onLocalPdfLoaded(DownloadedPdfEntity entity) {
         dataExtractor.setCurrentStoryId(entity.storyDocumentId);
 
@@ -497,10 +464,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
 
         doLoadPdf();
     }
-
-    // =========================================================
-    // 7️⃣ Voice control
-    // =========================================================
 
     private void setupVoiceControl() {
         if (speechController == null)
@@ -611,10 +574,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
         };
     }
 
-    // =========================================================
-    // 8️⃣ Navigation
-    // =========================================================
-
     private void navigateToChatbot(String ocrText) {
         ChatbotFragment chatbotFragment = ChatbotFragment.newInstance(ocrText);
 
@@ -623,10 +582,6 @@ public class ReadFragment extends Fragment implements DownloadController.Loading
                 .addToBackStack(null)
                 .commit();
     }
-
-    // =========================================================
-    // 9️⃣ Public interface
-    // =========================================================
 
     public String getCurrentTitle() {
         return dataExtractor.getCurrentTitle();

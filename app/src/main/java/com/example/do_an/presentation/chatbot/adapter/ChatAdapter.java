@@ -20,17 +20,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     private List<Message> items;
 
-    // =========================================================
-    // Constructor
-    // =========================================================
-
     public ChatAdapter(List<Message> items) {
         this.items = items;
     }
-
-    // =========================================================
-    // RecyclerView Methods
-    // =========================================================
 
     @Override
     public int getItemViewType(int position) {
@@ -61,10 +53,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public int getItemCount() {
         return items.size();
     }
-
-    // =========================================================
-    // ViewHolder
-    // =========================================================
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textMessage;

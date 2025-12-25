@@ -77,7 +77,6 @@ public class DownloadFragment extends Fragment {
     }
 
     private void setupListeners() {
-        // No listeners needed for this fragment
     }
 
     private void fetchAndDisplayDownloads() {
